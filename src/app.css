@@ -1,0 +1,32 @@
+html,
+body {
+	height: 100%;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	background: url(/assets/img/pattern.svg);
+	background-repeat: repeat;
+}
+
+.border-none {
+	border: 0 !important;
+}
+
+.margin-none {
+	margin: 0 !important;
+}
+
+html.dark body {
+	background: #41403e;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0;
+}
