@@ -16,7 +16,6 @@
 <p>
 	Welcome to the wiki. This wiki lets you find resources on various things, but please remember <b
 		>this is not medical or professional advice</b
-	>.
-
-    <a href="/wiki/test">Go to the test page?</a>
+	>. Everything here is still pretty work in progress so there's no way to view individual pages yet
+	unless you know what you're looking for, but we're getting there. Promise.
 </p>
