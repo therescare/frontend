@@ -20,7 +20,7 @@ export async function get({ params }: { params: { slug: string } }): Promise<End
 				description: data.description
 			}
 		};
-	} catch {
-		return;
+	} catch (e) {
+		return { status: 500, body: { error: e } };
 	}
 }
