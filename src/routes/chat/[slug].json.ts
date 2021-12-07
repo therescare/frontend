@@ -21,6 +21,12 @@ export async function get({ params }: { params: { slug: string } }): Promise<End
 			}
 		};
 	} catch (e) {
-		return { status: 500, body: { error: e } };
+		return {
+			status: 500,
+			body: {
+				message: 'API failure',
+				error: e
+			}
+		};
 	}
 }

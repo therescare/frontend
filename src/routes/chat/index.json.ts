@@ -29,9 +29,9 @@ export async function put({
 		const data = await fetch(`${base}/chatrooms`, {
 			method: 'PUT',
 			body: JSON.stringify(body),
-            headers: {
-                'Content-Type': 'application/json'
-            }
+			headers: {
+				'Content-Type': 'application/json'
+			}
 		}).then((res) => res.json());
 		return {
 			body: {
