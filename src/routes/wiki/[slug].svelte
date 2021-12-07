@@ -50,5 +50,6 @@
 </svelte:head>
 
 <h1>{title}</h1>
-<p>{shortDescription} <span class="text-muted"> Written by {author}. Last updated {dayjs(lastUpdated).fromNow()}.</span></p>
+<span class="text-muted">Written by {author}. Last updated {dayjs(lastUpdated).fromNow()}.</span>
+<p>{shortDescription}</p>
 <SvelteMarkdown source={markdown} />
