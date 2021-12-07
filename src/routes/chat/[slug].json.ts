@@ -5,6 +5,15 @@ export async function get({ params }: { params: { slug: string } }): Promise<End
 	try {
 		const base = dev ? 'http://localhost:1339' : 'https://api.theres.care';
 		const data = await fetch(`${base}/chatrooms/${params.slug}`).then((res) => res.json());
+		if (data.error) {
+			return {
+				status: 404,
+				body: {
+					error: data.error
+				}
+			};
+		}
+
 		return {
 			body: {
 				name: data.name,
