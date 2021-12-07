@@ -30,3 +30,7 @@ h5,
 h6 {
 	margin: 0;
 }
+
+nav {
+	z-index: initial !important;
+}

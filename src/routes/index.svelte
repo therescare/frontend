@@ -32,6 +32,6 @@
 <p>What can we do for you?</p>
 <div class="row child-borders flex-center">
 	<a href="/wiki" class="paper-btn margin">Find some resources</a>
-	<a href="#not-yet!" class="paper-btn disabled margin">Chat with others (not finished)</a>
+	<a href="/chat" class="paper-btn margin">Chat with others</a>
 	<a href="/everything-okay" class="paper-btn margin btn-danger-outline">I'm not doing okay</a>
 </div>

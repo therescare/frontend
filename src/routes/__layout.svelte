@@ -17,7 +17,7 @@
 		<div class="col-fill col padding-none" style="text-align: right">
 			<ul class="inline footer-links">
 				<li><a href="https://buymeacoffee.com/therescare">Donate</a></li>
-				<li><a href="/team">Team</a></li>
+				<li><a href="/about">About</a></li>
 			</ul>
 		</div>
 	</div>

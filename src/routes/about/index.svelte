@@ -54,13 +54,19 @@
 </script>
 
 <svelte:head>
-	<title>Team ~ there's care.</title>
+	<title>About ~ there's care.</title>
 
-	<meta property="og:title" content="Team" />
-	<meta property="og:description" content="We're the people who built this site." />
+	<meta property="og:title" content="About" />
+	<meta property="og:description" content="Here's the people who built the site and what we use." />
 </svelte:head>
 
-<h1>Team</h1>
+<h1>About</h1>
+<p>
+	there's care is a site that started to help promote wellbeing and care between friends, family,
+	and everyone! We've dedicated time and energy to making a useful resource for people to help care
+	for themselves and help care for others.
+</p>
+<h2>Team</h2>
 <p>These are the people who make there's care tick.</p>
 <div>
 	<div class="row">
@@ -76,5 +82,15 @@
 				</div>
 			</div>
 		{/each}
+	</div>
+</div>
+<h2>Acknowledgements</h2>
+<p>Here's some of the stuff we've used.</p>
+<div class="card">
+	<div class="card-body">
+		<p class="card-text margin-none">
+			Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from
+			<a href="https://www.flaticon.com/" title="Flaticon" class="margin-none">www.flaticon.com</a>
+		</p>
 	</div>
 </div>
