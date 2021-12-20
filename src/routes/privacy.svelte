@@ -15,9 +15,9 @@
 	activate your account) and a password. We will then, after activation, provide you with a moniker
 	which will be used to identify you anywhere on the site. This moniker is randomly generated,
 	cannot be set manually, and can only be regenerated every week. This enforces our ideology of
-	anonymous communication. The most we store is your user ID, your moniker, and your e-mail address.
-	IP addresses are logged, however they cannot be tied to an individual user and are used for
-	anti-abuse purposes.
+	anonymous communication. The most we store is your user ID, your moniker, your e-mail address, and
+	a hashed version of your password. IP addresses are logged, however they cannot be tied to an
+	individual user and are used for anti-abuse purposes.
 </p>
 <h2>Chat</h2>
 <p>
