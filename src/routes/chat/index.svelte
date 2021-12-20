@@ -26,15 +26,14 @@
 	export let rooms: { name: string; description: string; userCount: number; slug: string }[];
 
 	import { goto } from '$app/navigation';
+	import FormModal from '$lib/modals/FormModal.svelte';
 
 	let createRoomError = '';
 
 	let createRoomName = '';
 	let createRoomDescription = '';
 
-	async function createRoom(e) {
-		e.preventDefault();
-
+	async function createRoom() {
 		if (!createRoomName) {
 			return (createRoomError = 'You need a room name!');
 		}
@@ -46,7 +45,8 @@
 				description: createRoomDescription
 			}),
 			headers: {
-				'Content-Type': 'application/json'
+				'Content-Type': 'application/json',
+				Authorization: localStorage.getItem('token')
 			}
 		}).then((res) => res.json());
 
@@ -92,42 +92,35 @@
 	{/each}
 </div>
 
-<input class="modal-state" id="createModal" type="checkbox" />
-
-<div class="modal">
-	<label class="modal-bg" for="createModal" />
-	<div class="modal-body">
-		<label class="btn-close" for="createModal">X</label>
-		<h4 class="modal-title">Create private room</h4>
-		<p class="modal-text">
-			This will allow you to create a private room and share a link with your friends.
-		</p>
-		<form on:submit={createRoom}>
-			<div class="form-group">
-				<label for="roomName">Name*</label>
-				<input
-					type="text"
-					id="roomName"
-					class="input-block"
-					placeholder="Room of good vibes 💖"
-					bind:value={createRoomName}
-				/>
-			</div>
-			<div class="form-group">
-				<label for="roomDescription">Description</label>
-				<textarea
-					id="roomDescription"
-					class="input-block"
-					placeholder="A place to talk about good vibes and spreading that positive energy ✨"
-					bind:value={createRoomDescription}
-				/>
-			</div>
-			<p class="text-muted">* Required</p>
-			<p class="text-danger">{createRoomError}</p>
-			<input class="paper-btn" type="submit" value="Create" />
-		</form>
+<FormModal
+	id="createModal"
+	title="Create private room"
+	description="This will allow you to create a private room and share a link with your friends."
+	submitFunction={createRoom}
+>
+	<div class="form-group">
+		<label for="roomName">Name*</label>
+		<input
+			type="text"
+			id="roomName"
+			class="input-block"
+			placeholder="Room of good vibes 💖"
+			bind:value={createRoomName}
+		/>
 	</div>
-</div>
+	<div class="form-group">
+		<label for="roomDescription">Description</label>
+		<textarea
+			id="roomDescription"
+			class="input-block"
+			placeholder="A place to talk about good vibes and spreading that positive energy ✨"
+			bind:value={createRoomDescription}
+		/>
+	</div>
+	<p class="text-muted">* Required</p>
+	<p class="text-danger">{createRoomError}</p>
+	<input class="paper-btn" type="submit" value="Create" />
+</FormModal>
 
 <style>
 	.room {

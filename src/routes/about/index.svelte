@@ -1,10 +1,3 @@
-<script context="module" lang="ts">
-	import { browser, dev } from '$app/env';
-	export const hydrate = dev;
-	export const router = browser;
-	export const prerender = true;
-</script>
-
 <script lang="ts">
 	import lewis from './lewis.png';
 	import friz from './friz.png';

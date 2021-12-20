@@ -20,9 +20,7 @@
 		};
 	}
 
-	import { browser } from '$app/env';
-	export const hydrate = true;
-	export const router = browser;
+	// never prerender chatrooms
 	export const prerender = false;
 </script>
 
@@ -35,15 +33,20 @@
 	import io, { Socket } from 'socket.io-client';
 	import { onDestroy, onMount } from 'svelte';
 
-	import { fade } from 'svelte/transition';
 	import Chat from '../../lib/chat/Chat.svelte';
+	import { user } from '../../stores';
 
 	let messages = [];
 	let text: string;
 	let client: Socket;
 
-	onMount(() => {
-		client = io(dev ? 'ws://localhost:1339' : 'wss://api.theres.care');
+	function connect() {
+		if (client) return;
+		client = io(dev ? 'ws://localhost:1339' : 'wss://api.theres.care', {
+			auth: {
+				token: localStorage.getItem('token')
+			}
+		});
 		client.emit('join room', slug);
 
 		client.on('system message', (message) => {
@@ -93,6 +96,7 @@
 					text: 'Lost connection to server.'
 				}
 			];
+			client = null;
 		});
 
 		client.on('kick', (reason) => {
@@ -104,6 +108,12 @@
 				}
 			];
 		});
+	}
+
+	onMount(() => {
+		if ($user.loggedIn) {
+			connect();
+		}
 	});
 
 	onDestroy(() => {
@@ -113,6 +123,14 @@
 	function msg(text) {
 		client.emit('message', text);
 	}
+
+	user.subscribe(user => {
+		if (user.loggedIn) {
+			connect();
+		} else {
+			client?.disconnect();
+		}
+	});
 </script>
 
 <svelte:head>
@@ -124,4 +142,8 @@
 
 <h1>{name}</h1>
 <p>{description}</p>
-<Chat bind:messages sendMessage={msg} />
+{#if !$user.loggedIn}
+	<p>You need to log in first!</p>
+{:else}
+	<Chat bind:messages sendMessage={msg} />
+{/if}

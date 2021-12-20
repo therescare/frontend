@@ -1,10 +1,9 @@
 import type { EndpointOutput } from '@sveltejs/kit';
-import { dev } from '$app/env';
+import { apiBase } from '$lib/api';
 
 export async function get(): Promise<EndpointOutput> {
 	try {
-		const base = dev ? 'http://localhost:1339' : 'https://api.theres.care';
-		const data = await fetch(`${base}/chatrooms`).then((res) => res.json());
+		const data = await fetch(`${apiBase}/chatrooms`).then((res) => res.json());
 		return {
 			body: data
 		};
@@ -25,8 +24,7 @@ export async function put({
 	body: { name: string; description?: string };
 }): Promise<EndpointOutput> {
 	try {
-		const base = dev ? 'http://localhost:1339' : 'https://api.theres.care';
-		const data = await fetch(`${base}/chatrooms`, {
+		const data = await fetch(`${apiBase}/chatrooms`, {
 			method: 'PUT',
 			body: JSON.stringify(body),
 			headers: {

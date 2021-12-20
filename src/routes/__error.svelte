@@ -6,16 +6,12 @@
 			}
 		};
 	}
-
-	import { browser, dev } from '$app/env';
-	import { onMount } from 'svelte';
-	export const hydrate = dev;
-	export const router = browser;
-	export const prerender = true;
 </script>
 
 <script lang="ts">
 	export let status: number;
+
+	import { onMount } from 'svelte';
 
 	const error =
 		status === 404

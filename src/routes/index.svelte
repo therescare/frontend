@@ -1,10 +1,3 @@
-<script context="module" lang="ts">
-	import { browser, dev } from '$app/env';
-	export const hydrate = dev;
-	export const router = browser;
-	export const prerender = true;
-</script>
-
 <script lang="ts">
 	import logo from '$lib/logo.svg';
 </script>
@@ -25,9 +18,7 @@
 		alt="there's care. monogram"
 	/>
 	<b>there's care</b>. This is a little site built to help centralise mental health resources and
-	make it easier for people to vent their problems to others safely and anonymously. The only way
-	someone can identify you is by you saying who you are. We don't store or release any personal
-	information.
+	make it easier for people to vent their problems to others safely and anonymously.
 </p>
 <p>What can we do for you?</p>
 <div class="row child-borders flex-center">

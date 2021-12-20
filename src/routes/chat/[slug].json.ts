@@ -1,10 +1,9 @@
 import type { EndpointOutput } from '@sveltejs/kit';
-import { dev } from '$app/env';
+import { apiBase } from '$lib/api';
 
 export async function get({ params }: { params: { slug: string } }): Promise<EndpointOutput> {
 	try {
-		const base = dev ? 'http://localhost:1339' : 'https://api.theres.care';
-		const data = await fetch(`${base}/chatrooms/${params.slug}`).then((res) => res.json());
+		const data = await fetch(`${apiBase}/chatrooms/${params.slug}`).then((res) => res.json());
 		if (data.error) {
 			return {
 				status: 404,
