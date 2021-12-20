@@ -74,10 +74,6 @@
 			<input type="text" id="email" class="input-block" value={data.email} disabled />
 		</div>
 		<div class="form-group">
-			<label for="code">Verification code</label>
-			<input type="password" id="code" class="input-block" value={data.code} disabled />
-		</div>
-		<div class="form-group">
 			<label for="password">Password</label>
 			<input type="password" id="password" class="input-block" bind:value={password} />
 		</div>
